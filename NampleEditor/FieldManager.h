@@ -67,9 +67,9 @@ public:
 		DrawScreen();
 	}
 
-    void LoadMap(const char *fName) {
+    void LoadMap_RowWithComma(const char *fName) {
 		FILE *fp;
-		fp = fopen(fName, "r");
+	//	fp = fopen(fName, "r");
 		if (fp == NULL)return;
 		int data[9][9] = { 0 };
 		int x = 0, y = 0;
@@ -84,6 +84,29 @@ public:
 		SetData(data);
 	}
 
+	void LoadMap_RowWithOutComma(const char *fName) {
+		FILE *fp;
+		fopen_s(&fp,fName, "r");
+		if (fp == NULL)return;
+		char tmp[9][9] = { 0 };
+		int data[9][9] = { 0 };
+		int x = 0, y = 0;
+		for (int i = 0; i < 81; i++) {
+			fread(&(tmp[x][y]), 1, 1, fp);
+			tmp[x][y] -= '0';
+			x++;
+			if (x == 9) {
+				x = 0;
+				y++;
+			}
+		}
+		for (int y = 0; y < 9; y++) {
+			for (int x = 0; x < 9; x++) {
+				data[x][y] = (int)tmp[x][y];
+			}
+		}
+		SetData(data);
+	}
 
 private:
 	void DrawScreen() {
