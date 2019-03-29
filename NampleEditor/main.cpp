@@ -15,12 +15,12 @@ int main() {
 	{ 0,3,0,1,0,6,0,5,0 },
 	{ 0,0,5,0,0,0,3,0,0 },
 	{ 0,7,0,0,0,1,0,2,0 },
-	{ 2,0,0,0,3,0,0,8,0 },
 	{ 0,4,0,8,0,0,0,0,5 },
+	{ 2,0,0,0,3,0,0,8,0 },
 	};
 
 	FieldManager numple(100);
-	numple.LoadMap_RowWithOutComma("Numple.txt");
+//	numple.LoadMap_RowWithOutComma("Numple.txt");
 //	numple.SetData(data);
 
 
